@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import Preloader from './components/editorial/Preloader';
 import CustomCursor from './components/editorial/CustomCursor';
 import ScrollProgress from './components/editorial/ScrollProgress';
 import Navbar from './components/editorial/Navbar';
@@ -40,7 +42,12 @@ function ScrollToTopOrHash() {
 
 function HomePage() {
   return (
-    <main>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.35, ease: 'easeInOut' }}
+    >
       <Hero />
       <About />
       <Projects />
@@ -50,11 +57,13 @@ function HomePage() {
       <Values />
       <Contact />
       <Footer />
-    </main>
+    </motion.main>
   );
 }
 
 function AppContent() {
+  const location = useLocation();
+
   // Activate interactive cursor-edge scrolling globally (fine pointer only, respects reduced-motion)
   useCursorEdgeScroll({
     edgeZone: 90,
@@ -65,6 +74,9 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-[#0A0A0A] font-sans antialiased selection:bg-[#BFFF00] selection:text-black relative">
+      {/* Editorial Initial Preloader */}
+      <Preloader />
+
       {/* Route and Hash scroll coordinator */}
       <ScrollToTopOrHash />
 
@@ -77,13 +89,15 @@ function AppContent() {
       {/* Minimal Sticky Navigation */}
       <Navbar />
 
-      {/* Application Routes */}
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
-        {/* Catch-all redirect to homepage */}
-        <Route path="*" element={<HomePage />} />
-      </Routes>
+      {/* Application Routes with Page Transition */}
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
+          {/* Catch-all redirect to homepage */}
+          <Route path="*" element={<HomePage />} />
+        </Routes>
+      </AnimatePresence>
     </div>
   );
 }

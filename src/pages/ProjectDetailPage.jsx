@@ -42,7 +42,13 @@ export default function ProjectDetailPage() {
   const nextProject = projectsData[(currentIndex + 1) % projectsData.length];
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] text-[#0A0A0A] selection:bg-[#BFFF00] selection:text-black">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.35, ease: 'easeInOut' }}
+      className="min-h-screen bg-[#FAFAFA] text-[#0A0A0A] selection:bg-[#BFFF00] selection:text-black"
+    >
       {/* Top Breadcrumb Sub-Navigation Bar */}
       <div className="pt-20 sm:pt-24 border-b border-black/[0.06] bg-white/60">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-3.5 flex items-center justify-between">
@@ -86,16 +92,16 @@ export default function ProjectDetailPage() {
             {project.tagline}
           </p>
 
-          {/* Action CTAs: Live Demo / GitHub */}
+          {/* Action CTAs: LIVE PROJECT / GITHUB REPOSITORY */}
           <div className="flex flex-wrap items-center gap-3 pt-4">
             {project.isLive && project.liveUrl ? (
               <a
                 href={project.liveUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0A0A0A] text-white text-xs font-bold uppercase tracking-wider hover:bg-black transition-transform duration-200 hover:scale-[1.02] shadow-sm"
               >
-                <span>Live Project Demo</span>
+                <span>LIVE PROJECT</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             ) : (
@@ -103,20 +109,22 @@ export default function ProjectDetailPage() {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FAFAFA] border border-black/15 text-black/60 text-xs font-mono font-bold uppercase tracking-wider cursor-not-allowed"
                 title="Public deployment in progress"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                <span>Live Demo: {project.liveStatusText}</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                <span>LIVE DEMO COMING SOON</span>
               </div>
             )}
 
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-black/20 hover:border-black bg-white text-black text-xs font-bold uppercase tracking-wider transition-all"
-            >
-              <GithubIcon className="w-4 h-4" />
-              <span>Source Code</span>
-            </a>
+            {project.githubUrl ? (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-black/20 hover:border-black bg-white text-black text-xs font-bold uppercase tracking-wider transition-all"
+              >
+                <GithubIcon className="w-4 h-4" />
+                <span>GITHUB REPOSITORY</span>
+              </a>
+            ) : null}
           </div>
         </section>
 
@@ -405,6 +413,6 @@ export default function ProjectDetailPage() {
 
       {/* Global Minimal Editorial Footer */}
       <Footer />
-    </div>
+    </motion.div>
   );
 }
