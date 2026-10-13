@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { playSound } from '../../utils/soundManager';
 
 export default function Hero() {
   const headlineWords = ['BUILDING', 'DIGITAL', 'EXPERIENCES', 'THAT', 'SOLVE', 'REAL', 'PROBLEMS.'];
@@ -126,6 +127,8 @@ export default function Hero() {
             >
               <a
                 href="#projects"
+                onMouseEnter={() => playSound('hover')}
+                onClick={() => playSound('click')}
                 className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0A0A0A] text-white text-xs font-bold uppercase tracking-wider hover:bg-black transition-all shadow-md hover:scale-[1.02] active:scale-95"
               >
                 <span>Explore Selected Works</span>
@@ -134,6 +137,8 @@ export default function Hero() {
 
               <a
                 href="#about"
+                onMouseEnter={() => playSound('hover')}
+                onClick={() => playSound('click')}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-black/15 bg-white text-black text-xs font-bold uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all"
               >
                 About Background
@@ -178,6 +183,8 @@ export default function Hero() {
       >
         <a
           href="#about"
+          onMouseEnter={() => playSound('hover')}
+          onClick={() => playSound('click')}
           className="group flex items-center gap-2 hover:text-black transition-colors"
         >
           <span className="w-2 h-2 rounded-full bg-[#BFFF00] animate-bounce" />

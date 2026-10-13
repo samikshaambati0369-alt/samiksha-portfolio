@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, ArrowUp, Mail, Copy, Check, Send, ExternalLink } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../icons/BrandIcons';
+import { playSound } from '../../utils/soundManager';
 
 export default function Contact() {
   const [copiedField, setCopiedField] = useState(null);
@@ -17,6 +18,7 @@ export default function Contact() {
   };
 
   const copyToClipboard = (text, field) => {
+    playSound('click');
     navigator.clipboard.writeText(text);
     setCopiedField(field);
     setTimeout(() => setCopiedField(null), 2000);
@@ -26,6 +28,7 @@ export default function Contact() {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) return;
 
+    playSound('click');
     const emailSubject = encodeURIComponent(
       formData.subject.trim() || `Portfolio Inquiry from ${formData.name.trim()}`
     );
@@ -42,6 +45,7 @@ export default function Contact() {
   };
 
   const scrollToTop = () => {
+    playSound('click');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -127,6 +131,8 @@ export default function Contact() {
             {/* Direct Email Dispatch Button */}
             <a
               href={`mailto:${contactInfo.email}`}
+              onMouseEnter={() => playSound('hover')}
+              onClick={() => playSound('click')}
               className="w-full py-3 rounded-full bg-[#0A0A0A] text-white text-xs font-bold uppercase tracking-wider hover:bg-black flex items-center justify-center gap-2 transition-transform duration-200 hover:scale-[1.02] shadow-sm"
             >
               <Mail className="w-3.5 h-3.5" />
@@ -140,6 +146,8 @@ export default function Contact() {
                 href={contactInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                onMouseEnter={() => playSound('hover')}
+                onClick={() => playSound('click')}
                 className="p-3.5 rounded-2xl border border-black/10 hover:border-black bg-white flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider text-black transition-all hover:scale-[1.02]"
               >
                 <LinkedinIcon className="w-4 h-4 text-[#0077B5]" />
@@ -150,6 +158,8 @@ export default function Contact() {
                 href={contactInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                onMouseEnter={() => playSound('hover')}
+                onClick={() => playSound('click')}
                 className="p-3.5 rounded-2xl border border-black/10 hover:border-black bg-white flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider text-black transition-all hover:scale-[1.02]"
               >
                 <GithubIcon className="w-4 h-4 text-black" />
@@ -291,6 +301,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
+                  onMouseEnter={() => playSound('hover')}
                   className="w-full py-4 rounded-full bg-[#0A0A0A] hover:bg-black text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-transform duration-200 hover:scale-[1.01] active:scale-95 shadow-md"
                 >
                   <Send className="w-3.5 h-3.5" />

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import Preloader from './components/editorial/Preloader';
+import IntroSplash from './components/brand/IntroSplash';
 import CustomCursor from './components/editorial/CustomCursor';
 import ScrollProgress from './components/editorial/ScrollProgress';
 import Navbar from './components/editorial/Navbar';
@@ -63,6 +63,17 @@ function HomePage() {
 
 function AppContent() {
   const location = useLocation();
+  const [replayIntro, setReplayIntro] = useState(false);
+
+  // Listen for replay intro requests from anywhere in the app (e.g. footer)
+  useEffect(() => {
+    const handleReplay = () => {
+      sessionStorage.removeItem('samiksha_intro_seen');
+      setReplayIntro(true);
+    };
+    window.addEventListener('samiksha:replay-intro', handleReplay);
+    return () => window.removeEventListener('samiksha:replay-intro', handleReplay);
+  }, []);
 
   // Activate interactive cursor-edge scrolling globally (fine pointer only, respects reduced-motion)
   useCursorEdgeScroll({
@@ -74,8 +85,11 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-[#0A0A0A] font-sans antialiased selection:bg-[#BFFF00] selection:text-black relative">
-      {/* Editorial Initial Preloader */}
-      <Preloader />
+      {/* Cinematic 4-Step Splash Screen with SA Monogram & Sound */}
+      <IntroSplash
+        forceShow={replayIntro}
+        onComplete={() => setReplayIntro(false)}
+      />
 
       {/* Route and Hash scroll coordinator */}
       <ScrollToTopOrHash />

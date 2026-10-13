@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, FileText, Activity, Cpu, ArrowRight } from 'lucide-react';
 import { GithubIcon } from '../icons/BrandIcons';
 import { projectsData } from '../../data/projectsData';
+import { playSound } from '../../utils/soundManager';
 
 export default function Projects() {
   const navigate = useNavigate();
@@ -53,10 +54,15 @@ export default function Projects() {
             key={project.id}
             role="link"
             tabIndex={0}
-            onClick={() => navigate(project.caseStudyUrl)}
+            onMouseEnter={() => playSound('hover')}
+            onClick={() => {
+              playSound('click');
+              navigate(project.caseStudyUrl);
+            }}
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
+                playSound('click');
                 navigate(project.caseStudyUrl);
               }
             }}
@@ -159,7 +165,11 @@ export default function Projects() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
+                      onMouseEnter={() => playSound('hover')}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        playSound('click');
+                      }}
                       className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 rounded-full bg-[#0A0A0A] text-white text-xs font-bold uppercase tracking-wider hover:bg-black transition-transform duration-200 hover:scale-[1.03] active:scale-95 shadow-sm"
                     >
                       <span>LIVE PROJECT</span>
@@ -182,7 +192,11 @@ export default function Projects() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
+                      onMouseEnter={() => playSound('hover')}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        playSound('click');
+                      }}
                       className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full border border-black/20 bg-white text-black text-xs font-bold uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all"
                     >
                       <GithubIcon className="w-3.5 h-3.5" />
@@ -193,7 +207,11 @@ export default function Projects() {
                   {/* VIEW CASE STUDY BUTTON */}
                   <Link
                     to={project.caseStudyUrl}
-                    onClick={(e) => e.stopPropagation()}
+                    onMouseEnter={() => playSound('hover')}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      playSound('click');
+                    }}
                     className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 rounded-full bg-white border border-black/20 text-black text-xs font-bold uppercase tracking-wider hover:bg-[#BFFF00] hover:border-black hover:text-black transition-all group/study"
                   >
                     <FileText className="w-3.5 h-3.5" />

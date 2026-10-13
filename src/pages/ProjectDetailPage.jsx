@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowUpRight, CheckCircle2, AlertCircle, Cpu, Activity } fro
 import { GithubIcon } from '../components/icons/BrandIcons';
 import { projectsData } from '../data/projectsData';
 import Footer from '../components/editorial/Footer';
+import { playSound } from '../utils/soundManager';
 
 export default function ProjectDetailPage() {
   const { projectId } = useParams();
@@ -54,6 +55,8 @@ export default function ProjectDetailPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-3.5 flex items-center justify-between">
           <Link
             to="/#projects"
+            onMouseEnter={() => playSound('hover')}
+            onClick={() => playSound('click')}
             className="group inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-black/70 hover:text-black transition-colors"
           >
             <ArrowLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" />
@@ -99,6 +102,8 @@ export default function ProjectDetailPage() {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onMouseEnter={() => playSound('hover')}
+                onClick={() => playSound('click')}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0A0A0A] text-white text-xs font-bold uppercase tracking-wider hover:bg-black transition-transform duration-200 hover:scale-[1.02] shadow-sm"
               >
                 <span>LIVE PROJECT</span>
@@ -119,6 +124,8 @@ export default function ProjectDetailPage() {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onMouseEnter={() => playSound('hover')}
+                onClick={() => playSound('click')}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-black/20 hover:border-black bg-white text-black text-xs font-bold uppercase tracking-wider transition-all"
               >
                 <GithubIcon className="w-4 h-4" />
@@ -395,6 +402,8 @@ export default function ProjectDetailPage() {
         <section className="pt-12 border-t border-black/[0.08] flex flex-wrap items-center justify-between gap-6">
           <Link
             to="/#projects"
+            onMouseEnter={() => playSound('hover')}
+            onClick={() => playSound('click')}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-black/20 hover:border-black bg-white text-xs font-bold uppercase tracking-wider text-black transition-all"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
@@ -403,6 +412,8 @@ export default function ProjectDetailPage() {
 
           <Link
             to={`/projects/${nextProject.slug}`}
+            onMouseEnter={() => playSound('hover')}
+            onClick={() => playSound('click')}
             className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-black text-white text-xs font-bold uppercase tracking-wider hover:bg-black/80 transition-all"
           >
             <span>Next: {nextProject.title}</span>
