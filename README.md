@@ -35,8 +35,22 @@ Inspired by creative digital studio editorial design with oversized bold typogra
   - Complete technology stack tags
   - Continuous reading next-project pagination and "Back to All Projects" navigation
 
-### 4. Vercel SPA Deployment & Production Ready
+### 4. Cinematic Logo Splash Screen & Bespoke "SA" Monogram
+- **4-Step Cinematic Reveal**:
+  1. Deep black backdrop with central lime-green expansion dot
+  2. "SA" monogram geometric scale & settle reveal
+  3. Sequential typography reveal of `SAMIKSHA AMBATI` & `DEVELOPER PORTFOLIO — 2026`
+  4. Expanding circular mask unrolls smoothly into the clean white editorial layout
+- **Accessibility & Controls**: Skip intro button, `sessionStorage` guard, replay capability in footer, and full `prefers-reduced-motion` compliance.
+
+### 5. Native Web Audio API Sound System
+- **Zero External Assets**: Synthesizer built entirely using Web Audio API (zero audio download lag, zero copyright constraints).
+- **Subtle Audio Palette**: Ambient intro swell, crystalline logo chime, transition air whoosh, 100ms-debounced hover blips, and tactile confirm clicks.
+- **Strict Compliance**: Off by default for first-time visitors, persisted in `localStorage`, and accessible via sticky navbar `SoundToggle`.
+
+### 6. Vercel SPA Deployment & Production Ready
 - **Instant Client-Side Routing**: Configured with `vercel.json` rewrite rules (`/(.*)` -> `/index.html`) so refreshing deep URLs (e.g. `/projects/voxshield-ai`) never returns a 404 error.
+- **Live Production URL**: [https://samiksha-portfolio-seven.vercel.app](https://samiksha-portfolio-seven.vercel.app)
 - **Zero-Warning Production Bundling**: Powered by Vite + React 19 + Tailwind CSS + Framer Motion.
 
 ---
