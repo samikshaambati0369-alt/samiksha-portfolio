@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowUpRight, CheckCircle2, AlertCircle, Cpu, Activity } from 'lucide-react';
-import { GithubIcon } from '../components/icons/BrandIcons';
+import { GithubIcon, YoutubeIcon } from '../components/icons/BrandIcons';
 import { projectsData } from '../data/projectsData';
 import Footer from '../components/editorial/Footer';
 import { playSound } from '../utils/soundManager';
@@ -95,7 +95,7 @@ export default function ProjectDetailPage() {
             {project.tagline}
           </p>
 
-          {/* Action CTAs: LIVE PROJECT / GITHUB REPOSITORY */}
+          {/* Action CTAs: LIVE PROJECT / WATCH DEMO VIDEO / GITHUB REPOSITORY */}
           <div className="flex flex-wrap items-center gap-3 pt-4">
             {project.isLive && project.liveUrl ? (
               <a
@@ -118,6 +118,20 @@ export default function ProjectDetailPage() {
                 <span>LIVE DEMO COMING SOON</span>
               </div>
             )}
+
+            {project.videoUrl ? (
+              <a
+                href={project.videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onMouseEnter={() => playSound('hover')}
+                onClick={() => playSound('click')}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-red-500/30 hover:border-red-500 bg-red-50 hover:bg-red-100/80 text-red-600 hover:text-red-700 text-xs font-bold uppercase tracking-wider transition-all"
+              >
+                <YoutubeIcon className="w-4 h-4 text-red-600" />
+                <span>WATCH DEMO VIDEO</span>
+              </a>
+            ) : null}
 
             {project.githubUrl ? (
               <a
@@ -184,6 +198,37 @@ export default function ProjectDetailPage() {
             {project.overview}
           </p>
         </section>
+
+        {/* Video Demonstration Walkthrough Section */}
+        {project.videoEmbedUrl && (
+          <section className="space-y-6">
+            <div className="flex items-center justify-between border-b border-black/[0.08] pb-4 text-xs font-mono">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse" />
+                <span className="font-bold text-black uppercase">VIDEO DEMONSTRATION & WALKTHROUGH</span>
+              </div>
+              <a
+                href={project.videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-red-600 hover:text-red-700 font-bold flex items-center gap-1.5"
+              >
+                <span>OPEN ON YOUTUBE</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+
+            <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-black/10 bg-black shadow-lg">
+              <iframe
+                src={project.videoEmbedUrl}
+                title={`${project.title} Video Demonstration`}
+                className="w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          </section>
+        )}
 
         {/* Visual Preview / Interface Mockup */}
         <section className="space-y-6">

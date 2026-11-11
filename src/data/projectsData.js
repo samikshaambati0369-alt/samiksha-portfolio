@@ -53,6 +53,8 @@ export const projectsData = [
     liveStatusText: 'Live Project Active',
     // Verified GitHub Repository:
     githubUrl: 'https://github.com/samikshaambati0369-alt/voxshield-ai',
+    videoUrl: 'https://youtu.be/tx5PfdyvelA',
+    videoEmbedUrl: 'https://www.youtube.com/embed/tx5PfdyvelA',
     caseStudyUrl: '/projects/voxshield-ai',
     accentColor: '#8B5CF6',
     mockupType: 'audio',
@@ -110,6 +112,8 @@ export const projectsData = [
     liveStatusText: 'Live Project Active',
     // Verified GitHub Repository:
     githubUrl: 'https://github.com/samikshaambati0369-alt/BuildSecure-CypherCore',
+    videoUrl: 'https://youtu.be/VvFuHlicRLQ',
+    videoEmbedUrl: 'https://www.youtube.com/embed/VvFuHlicRLQ',
     caseStudyUrl: '/projects/fintrack',
     accentColor: '#10B981',
     mockupType: 'finance',
@@ -165,6 +169,8 @@ export const projectsData = [
     liveStatusText: 'Live Project Active',
     // GitHub repository: Not hosted as a standalone personal public repo; left empty to prevent broken link
     githubUrl: '',
+    videoUrl: 'https://youtu.be/32elBhZFly4',
+    videoEmbedUrl: 'https://www.youtube.com/embed/32elBhZFly4',
     caseStudyUrl: '/projects/aegiszero',
     accentColor: '#06B6D4',
     mockupType: 'workflow',

@@ -23,7 +23,7 @@ import {
   Monitor,
   Terminal,
 } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from '../icons/BrandIcons';
+import { GithubIcon, LinkedinIcon, YoutubeIcon } from '../icons/BrandIcons';
 import Logo from '../brand/Logo';
 
 export default function BentoView({ onSwitchToDesktop, onOpenProject, onReplaySplash }) {
@@ -379,14 +379,26 @@ export default function BentoView({ onSwitchToDesktop, onOpenProject, onReplaySp
                 <span>Launch FinTrack Sandbox</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
-              <a
-                href="https://github.com/samikshaambati0369-alt"
-                target="_blank"
-                rel="noreferrer"
-                className="text-slate-400 hover:text-white transition-colors"
-              >
-                <GithubIcon className="w-4 h-4" />
-              </a>
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://youtu.be/VvFuHlicRLQ"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-slate-400 hover:text-red-400 transition-colors"
+                  title="Watch FinTrack Video Demo"
+                >
+                  <YoutubeIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://github.com/samikshaambati0369-alt"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-slate-400 hover:text-white transition-colors"
+                  title="GitHub Repository"
+                >
+                  <GithubIcon className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -429,14 +441,26 @@ export default function BentoView({ onSwitchToDesktop, onOpenProject, onReplaySp
                 <span>Launch Audio Radar</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
-              <a
-                href="https://github.com/samikshaambati0369-alt"
-                target="_blank"
-                rel="noreferrer"
-                className="text-slate-400 hover:text-white transition-colors"
-              >
-                <GithubIcon className="w-4 h-4" />
-              </a>
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://youtu.be/tx5PfdyvelA"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-slate-400 hover:text-red-400 transition-colors"
+                  title="Watch VoxShield AI Video Demo"
+                >
+                  <YoutubeIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://github.com/samikshaambati0369-alt"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-slate-400 hover:text-white transition-colors"
+                  title="GitHub Repository"
+                >
+                  <GithubIcon className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -479,7 +503,18 @@ export default function BentoView({ onSwitchToDesktop, onOpenProject, onReplaySp
                 <span>Run Agentic Simulator</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
-              <span className="text-[11px] font-mono text-slate-400">Team S3vertex</span>
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://youtu.be/32elBhZFly4"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-slate-400 hover:text-red-400 transition-colors"
+                  title="Watch AegisZero Video Demo"
+                >
+                  <YoutubeIcon className="w-4 h-4" />
+                </a>
+                <span className="text-[11px] font-mono text-slate-400">Team S3vertex</span>
+              </div>
             </div>
           </div>
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { portfolioData } from '../../data/portfolioData';
 import { playSound } from '../../utils/sound';
 import { ShieldAlert, Mic, Activity, Volume2, AlertTriangle, CheckCircle, Radio, Play, RotateCcw } from 'lucide-react';
-import { GithubIcon } from '../icons/BrandIcons';
+import { GithubIcon, YoutubeIcon } from '../icons/BrandIcons';
 
 export default function VoxShieldApp() {
   const project = portfolioData.projects.find(p => p.id === 'voxshield');
@@ -93,15 +93,28 @@ export default function VoxShieldApp() {
             </div>
           </div>
 
-          <a
-            href={project.links.github}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors"
-          >
-            <GithubIcon className="w-3.5 h-3.5" />
-            Source Repository
-          </a>
+          <div className="flex items-center gap-2">
+            <a
+              href="https://youtu.be/tx5PfdyvelA"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-red-600/20 hover:bg-red-600/30 text-red-400 border border-red-500/30 transition-colors"
+              title="Watch VoxShield AI Video Demo on YouTube"
+            >
+              <YoutubeIcon className="w-3.5 h-3.5 text-red-400" />
+              Watch Video Demo
+            </a>
+
+            <a
+              href={project.links.github}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors"
+            >
+              <GithubIcon className="w-3.5 h-3.5" />
+              Source Repository
+            </a>
+          </div>
         </div>
       </div>
 

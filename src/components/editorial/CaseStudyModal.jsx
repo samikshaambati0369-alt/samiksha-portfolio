@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, CheckCircle2, Shield, Cpu, PieChart, ArrowUpRight } from 'lucide-react';
-import { GithubIcon } from '../icons/BrandIcons';
+import { GithubIcon, YoutubeIcon } from '../icons/BrandIcons';
 
 export default function CaseStudyModal({ project, onClose }) {
   if (!project) return null;
@@ -141,15 +141,30 @@ export default function CaseStudyModal({ project, onClose }) {
             </span>
 
             <div className="flex items-center gap-3">
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="px-4 py-2.5 rounded-full border border-black/20 hover:border-black bg-white text-xs font-bold uppercase tracking-wider text-black flex items-center gap-2 transition-all"
-              >
-                <GithubIcon className="w-4 h-4" />
-                GitHub
-              </a>
+              {project.videoUrl && (
+                <a
+                  href={project.videoUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-4 py-2.5 rounded-full border border-red-500/30 hover:border-red-500 bg-red-50 hover:bg-red-100 text-xs font-bold uppercase tracking-wider text-red-600 flex items-center gap-2 transition-all"
+                  title="Watch Project Video Demo"
+                >
+                  <YoutubeIcon className="w-4 h-4 text-red-600" />
+                  Video Demo
+                </a>
+              )}
+
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-4 py-2.5 rounded-full border border-black/20 hover:border-black bg-white text-xs font-bold uppercase tracking-wider text-black flex items-center gap-2 transition-all"
+                >
+                  <GithubIcon className="w-4 h-4" />
+                  GitHub
+                </a>
+              )}
 
               <a
                 href={project.liveUrl || project.githubUrl}

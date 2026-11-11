@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { portfolioData } from '../../data/portfolioData';
 import { playSound } from '../../utils/sound';
 import { PieChart, ShieldCheck, Database, Server, Sparkles, Plus, TrendingDown, TrendingUp, AlertCircle, ExternalLink } from 'lucide-react';
-import { GithubIcon } from '../icons/BrandIcons';
+import { GithubIcon, YoutubeIcon } from '../icons/BrandIcons';
 
 export default function FinTrackApp() {
   const project = portfolioData.projects.find(p => p.id === 'fintrack');
@@ -79,6 +79,17 @@ export default function FinTrackApp() {
           </div>
 
           <div className="flex items-center gap-2">
+            <a
+              href="https://youtu.be/VvFuHlicRLQ"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-red-600/20 hover:bg-red-600/30 text-red-400 border border-red-500/30 transition-colors"
+              title="Watch FinTrack Video Demo on YouTube"
+            >
+              <YoutubeIcon className="w-3.5 h-3.5 text-red-400" />
+              Watch Video Demo
+            </a>
+
             <a
               href={project.links.github}
               target="_blank"

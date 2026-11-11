@@ -107,7 +107,8 @@ export const portfolioData = {
       },
       links: {
         github: "https://github.com/samikshaambati0369-alt",
-        demo: "#",
+        demo: "https://youtu.be/VvFuHlicRLQ",
+        video: "https://youtu.be/VvFuHlicRLQ",
       },
       color: "emerald",
       icon: "PieChart",
@@ -129,7 +130,8 @@ export const portfolioData = {
       techStack: ["Python", "Machine Learning", "Audio Signal Processing", "Speech Recognition", "NumPy", "Matplotlib", "Librosa"],
       links: {
         github: "https://github.com/samikshaambati0369-alt",
-        demo: "#",
+        demo: "https://youtu.be/tx5PfdyvelA",
+        video: "https://youtu.be/tx5PfdyvelA",
       },
       color: "violet",
       icon: "ShieldAlert",
@@ -155,7 +157,8 @@ export const portfolioData = {
       techStack: ["Workato Platform", "Enterprise Orchestration", "Agentic Workflows", "API Integrations", "Autonomous Recovery"],
       links: {
         github: "https://github.com/samikshaambati0369-alt",
-        demo: "#",
+        demo: "https://youtu.be/32elBhZFly4",
+        video: "https://youtu.be/32elBhZFly4",
       },
       color: "cyan",
       icon: "Cpu",

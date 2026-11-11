@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { portfolioData } from '../../data/portfolioData';
 import { playSound } from '../../utils/sound';
 import { Cpu, Play, CheckCircle2, RefreshCw, AlertTriangle, Terminal, Network, Shield, ArrowRight } from 'lucide-react';
+import { YoutubeIcon } from '../icons/BrandIcons';
 
 export default function AegisZeroApp() {
   const project = portfolioData.projects.find(p => p.id === 'aegiszero');
@@ -73,18 +74,31 @@ export default function AegisZeroApp() {
             </div>
           </div>
 
-          <button
-            onClick={runSimulation}
-            disabled={isSimulating}
-            className="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 disabled:opacity-50 text-slate-950 font-bold text-xs rounded-lg transition-all shadow-md shadow-cyan-500/20 flex items-center gap-1.5"
-          >
-            {isSimulating ? (
-              <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-            ) : (
-              <Play className="w-3.5 h-3.5 fill-current" />
-            )}
-            {isSimulating ? 'Autonomous Loop Running...' : 'Simulate Enterprise Outage'}
-          </button>
+          <div className="flex items-center gap-2">
+            <a
+              href="https://youtu.be/32elBhZFly4"
+              target="_blank"
+              rel="noreferrer"
+              className="px-3 py-2 bg-red-600/20 hover:bg-red-600/30 text-red-400 border border-red-500/30 font-semibold text-xs rounded-lg transition-all flex items-center gap-1.5"
+              title="Watch AegisZero Video Demo on YouTube"
+            >
+              <YoutubeIcon className="w-3.5 h-3.5 text-red-400" />
+              Watch Demo Video
+            </a>
+
+            <button
+              onClick={runSimulation}
+              disabled={isSimulating}
+              className="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 disabled:opacity-50 text-slate-950 font-bold text-xs rounded-lg transition-all shadow-md shadow-cyan-500/20 flex items-center gap-1.5"
+            >
+              {isSimulating ? (
+                <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+              ) : (
+                <Play className="w-3.5 h-3.5 fill-current" />
+              )}
+              {isSimulating ? 'Autonomous Loop Running...' : 'Simulate Enterprise Outage'}
+            </button>
+          </div>
         </div>
       </div>
 

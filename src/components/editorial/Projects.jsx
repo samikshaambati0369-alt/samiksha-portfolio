@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, FileText, Activity, Cpu, ArrowRight } from 'lucide-react';
-import { GithubIcon } from '../icons/BrandIcons';
+import { GithubIcon, YoutubeIcon } from '../icons/BrandIcons';
 import { projectsData } from '../../data/projectsData';
 import { playSound } from '../../utils/soundManager';
 
@@ -157,7 +157,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* 3 Functional Buttons: LIVE PROJECT, GITHUB REPOSITORY, VIEW CASE STUDY */}
+                {/* Functional Buttons: LIVE PROJECT, VIDEO DEMO, GITHUB REPOSITORY, VIEW CASE STUDY */}
                 <div className="flex flex-wrap items-center gap-3 pt-2">
                   {/* LIVE PROJECT BUTTON */}
                   {project.isLive && project.liveUrl ? (
@@ -184,6 +184,25 @@ export default function Projects() {
                       <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
                       <span>LIVE DEMO COMING SOON</span>
                     </span>
+                  )}
+
+                  {/* VIDEO DEMO BUTTON */}
+                  {project.videoUrl && (
+                    <a
+                      href={project.videoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onMouseEnter={() => playSound('hover')}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        playSound('click');
+                      }}
+                      className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 rounded-full border border-red-500/30 bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700 text-xs font-bold uppercase tracking-wider transition-all duration-200 hover:scale-[1.03] shadow-sm"
+                      title="Watch Project Video Walkthrough"
+                    >
+                      <YoutubeIcon className="w-3.5 h-3.5 text-red-600" />
+                      <span>WATCH DEMO</span>
+                    </a>
                   )}
 
                   {/* GITHUB REPOSITORY BUTTON (rendered only if repository URL is present) */}
